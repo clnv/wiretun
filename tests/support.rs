@@ -9,7 +9,7 @@ use std::sync::{Arc, Mutex as StdMutex};
 
 use async_trait::async_trait;
 use rand_core::OsRng;
-use tokio::sync::{Mutex, mpsc};
+use tokio::sync::{mpsc, Mutex};
 
 use wiretun::noise::crypto::LocalStaticSecret;
 use wiretun::*;

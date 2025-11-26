@@ -1,11 +1,11 @@
 use super::session::{Session, SessionIndex};
 use crate::noise::protocol::HandshakeResponse;
 use crate::noise::{
-    Error,
-    crypto::{PeerStaticSecret, kdf2},
+    crypto::{kdf2, PeerStaticSecret},
     handshake::{
         IncomingInitiation, IncomingResponse, MacGenerator, OutgoingInitiation, OutgoingResponse,
     },
+    Error,
 };
 
 enum State {

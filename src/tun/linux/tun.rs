@@ -10,9 +10,9 @@ use nix::sys::stat::Mode;
 use tokio::io::unix::AsyncFd;
 use tracing::debug;
 
-use crate::Tun;
-use crate::tun::Error;
 use crate::tun::linux::sys::{self, get_mtu, ioctl_tun_set_iff, set_mtu, set_nonblocking};
+use crate::tun::Error;
+use crate::Tun;
 
 const DEVICE_PATH: &str = "/dev/net/tun";
 

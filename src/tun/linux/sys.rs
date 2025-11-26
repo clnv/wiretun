@@ -2,8 +2,8 @@ use std::mem;
 use std::os::fd::{AsRawFd, RawFd};
 
 use libc::{__c_anonymous_ifr_ifru, c_char, ifreq};
-use nix::fcntl::{FcntlArg, OFlag, fcntl};
-use nix::sys::socket::{AddressFamily, SockFlag, SockType, socket};
+use nix::fcntl::{fcntl, FcntlArg, OFlag};
+use nix::sys::socket::{socket, AddressFamily, SockFlag, SockType};
 use nix::{ioctl_read_bad, ioctl_write_ptr_bad};
 
 use crate::tun::Error;

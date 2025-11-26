@@ -1,6 +1,6 @@
 use blake2::{
-    Blake2s256, Blake2sMac, Digest,
     digest::{FixedOutput, Mac, Update},
+    Blake2s256, Blake2sMac, Digest,
 };
 use rand_core::OsRng;
 
