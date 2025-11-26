@@ -4,8 +4,8 @@ use std::time::SystemTime;
 
 use bytes::{BufMut, Bytes, BytesMut};
 
-use crate::noise::crypto;
 use crate::Cidr;
+use crate::noise::crypto;
 
 pub enum Request {
     Get,

@@ -4,11 +4,11 @@ description = "WireGuard Library"
 version = "0.5.0"
 authors = ["zarvd <jialun.cai@pm.me>"]
 keywords = ["wireguard", "networking"]
-repository = "https://github.com/zarvd/wiretun"
-homepage = "https://github.com/zarvd/wiretun"
+repository = "https://github.com/clnv/wiretun"
+homepage = "https://github.com/clnv/wiretun"
 documentation = "https://docs.rs/wiretun"
 license = "Apache-2.0"
-edition = "2021"
+edition = "2024"
 
 [features]
 default = ["native"]

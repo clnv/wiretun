@@ -8,13 +8,13 @@ use tokio_util::sync::CancellationToken;
 use tracing::{debug, info, warn};
 
 use super::{InboundEvent, InboundRx, OutboundEvent, OutboundRx, Peer, Session};
+use crate::Tun;
 use crate::device::{Endpoint, Transport};
 use crate::noise::handshake::IncomingInitiation;
 use crate::noise::protocol::{
-    self, CookieReply, HandshakeResponse, TransportData, COOKIE_REPLY_PACKET_SIZE,
-    HANDSHAKE_RESPONSE_PACKET_SIZE,
+    self, COOKIE_REPLY_PACKET_SIZE, CookieReply, HANDSHAKE_RESPONSE_PACKET_SIZE, HandshakeResponse,
+    TransportData,
 };
-use crate::Tun;
 
 pub(crate) struct PeerHandle {
     token: CancellationToken,

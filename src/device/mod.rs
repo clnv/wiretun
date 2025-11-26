@@ -21,9 +21,9 @@ use tokio::sync::Mutex as AsyncMutex;
 use tokio_util::sync::CancellationToken;
 use tracing::debug;
 
+use crate::Tun;
 use crate::noise::crypto::LocalStaticSecret;
 use crate::noise::handshake::Cookie;
-use crate::Tun;
 use handle::DeviceHandle;
 use inbound::Inbound;
 use peer::{Peer, PeerIndex, Session};

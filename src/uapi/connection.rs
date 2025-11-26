@@ -1,8 +1,8 @@
 use bytes::Bytes;
 use std::collections::HashSet;
 use tokio::io::{AsyncBufReadExt, AsyncReadExt, AsyncWriteExt, BufReader};
-use tokio::net::unix::{OwnedReadHalf, OwnedWriteHalf};
 use tokio::net::UnixStream;
+use tokio::net::unix::{OwnedReadHalf, OwnedWriteHalf};
 use tracing::debug;
 
 use super::{Error, Request, Response, SetDevice, SetPeer};

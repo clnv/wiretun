@@ -7,14 +7,14 @@ use tokio::task::JoinHandle;
 use tokio_util::sync::CancellationToken;
 use tracing::{debug, error, warn};
 
+use super::DeviceInner;
 use super::inbound::{Endpoint, Transport};
 use super::peer::InboundEvent;
-use super::DeviceInner;
+use crate::Tun;
 use crate::noise::crypto::LocalStaticSecret;
 use crate::noise::handshake::{Cookie, IncomingInitiation};
 use crate::noise::protocol;
 use crate::noise::protocol::Message;
-use crate::Tun;
 
 pub(super) struct DeviceHandle {
     token: CancellationToken,

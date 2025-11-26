@@ -3,7 +3,7 @@ use std::os::fd::RawFd;
 use std::{io, mem, ptr};
 
 use libc::*;
-use nix::fcntl::{fcntl, FcntlArg, OFlag};
+use nix::fcntl::{FcntlArg, OFlag, fcntl};
 use nix::{ioctl_read_bad, ioctl_write_ptr_bad};
 
 use crate::tun::Error;
@@ -97,19 +97,25 @@ pub unsafe fn get_iface_name(fd: RawFd) -> Result<String, io::Error> {
     const MAX_LEN: usize = 256;
     let mut name = [0u8; MAX_LEN];
     let mut name_len: libc::socklen_t = name.len() as _;
-    if libc::getsockopt(
-        fd,
-        libc::SYSPROTO_CONTROL,
-        libc::UTUN_OPT_IFNAME,
-        name.as_mut_ptr() as _,
-        &mut name_len,
-    ) < 0
-    {
+
+    let ret = unsafe {
+        libc::getsockopt(
+            fd,
+            libc::SYSPROTO_CONTROL,
+            libc::UTUN_OPT_IFNAME,
+            name.as_mut_ptr() as _,
+            &mut name_len,
+        )
+    };
+
+    if ret < 0 {
         return Err(io::Error::last_os_error());
     }
-    Ok(CStr::from_ptr(name.as_ptr() as *const libc::c_char)
-        .to_string_lossy()
-        .into())
+    Ok(
+        unsafe { CStr::from_ptr(name.as_ptr() as *const libc::c_char) }
+            .to_string_lossy()
+            .into(),
+    )
 }
 
 #[cfg(test)]

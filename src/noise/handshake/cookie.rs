@@ -6,7 +6,7 @@ use bytes::{BufMut, BytesMut};
 use rand_core::{OsRng, RngCore};
 
 use super::{LABEL_COOKIE, LABEL_MAC1};
-use crate::noise::crypto::{hash, mac, xaead_encrypt, LocalStaticSecret, PeerStaticSecret};
+use crate::noise::crypto::{LocalStaticSecret, PeerStaticSecret, hash, mac, xaead_encrypt};
 
 const MESSAGE_TYPE_COOKIE_REPLY: u8 = 3u8;
 const PACKET_SIZE: usize = 64;
