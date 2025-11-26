@@ -104,10 +104,10 @@ impl Cookie {
     // Refresh the secret if it's expired.
     fn refresh_secret(&self) -> [u8; 32] {
         let mut secret = self.secret.lock().unwrap();
-        if let Some(v) = secret.as_ref() {
-            if v.1.elapsed() < COOKIE_LIFETIME {
-                return v.0;
-            }
+        if let Some(v) = secret.as_ref()
+            && v.1.elapsed() < COOKIE_LIFETIME
+        {
+            return v.0;
         }
 
         let mut rv = [0u8; 32];
