@@ -1,8 +1,8 @@
 [package]
 name = "wiretun"
 description = "WireGuard Library"
-version = "0.5.0"
-authors = ["zarvd <jialun.cai@pm.me>"]
+version = "0.5.1"
+authors = ["Jialun Cai <jialun.cai@pm.me>"]
 keywords = ["wireguard", "networking"]
 repository = "https://github.com/clnv/wiretun"
 homepage = "https://github.com/clnv/wiretun"
@@ -30,7 +30,10 @@ async-trait = "0.1"
 tokio = { version = "1.37", features = ["full"] }
 tokio-util = "0.7"
 chacha20poly1305 = "0.10"
-x25519-dalek = { version = "2.0", features = ["reusable_secrets", "static_secrets"] }
+x25519-dalek = { version = "2.0", features = [
+  "reusable_secrets",
+  "static_secrets",
+] }
 blake2 = "0.10"
 hmac = "0.12"
 ip_network = "0.4"
