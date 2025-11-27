@@ -3,11 +3,11 @@ use bytes::{BufMut, BytesMut};
 use super::{IncomingInitiation, MacGenerator, OutgoingInitiation};
 use crate::noise::protocol::HandshakeResponse;
 use crate::noise::{
-    Error,
     crypto::{
-        EphemeralPrivateKey, PeerStaticSecret, PublicKey, aead_decrypt, aead_encrypt,
-        gen_ephemeral_key, hash, kdf1, kdf3,
+        aead_decrypt, aead_encrypt, gen_ephemeral_key, hash, kdf1, kdf3, EphemeralPrivateKey,
+        PeerStaticSecret, PublicKey,
     },
+    Error,
 };
 
 const MESSAGE_TYPE_HANDSHAKE_RESPONSE: u8 = 2u8;

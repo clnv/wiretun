@@ -19,12 +19,12 @@ use std::time::Duration;
 use tokio::sync::mpsc;
 use tracing::{debug, warn};
 
-use crate::Tun;
 use crate::device::inbound::{Endpoint, Transport};
 use crate::noise::crypto;
 use crate::noise::crypto::PeerStaticSecret;
 use crate::noise::handshake::IncomingInitiation;
 use crate::noise::protocol;
+use crate::Tun;
 use handshake::Handshake;
 use monitor::PeerMonitor;
 use session::{ActiveSession, SessionIndex};

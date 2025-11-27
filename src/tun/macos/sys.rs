@@ -3,7 +3,7 @@ use std::os::fd::RawFd;
 use std::{io, mem, ptr};
 
 use libc::*;
-use nix::fcntl::{FcntlArg, OFlag, fcntl};
+use nix::fcntl::{fcntl, FcntlArg, OFlag};
 use nix::{ioctl_read_bad, ioctl_write_ptr_bad};
 
 use crate::tun::Error;

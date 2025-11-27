@@ -1,12 +1,12 @@
 use bytes::{BufMut, BytesMut};
 
-use super::{CONSTRUCTION, IDENTIFIER, MacGenerator};
+use super::{MacGenerator, CONSTRUCTION, IDENTIFIER};
 use crate::noise::crypto::{EphemeralPrivateKey, LocalStaticSecret, PeerStaticSecret, PublicKey};
 use crate::noise::protocol::HandshakeInitiation;
 use crate::noise::{
-    Error,
     crypto::{aead_decrypt, aead_encrypt, gen_ephemeral_key, hash, kdf1, kdf2},
     timestamp::Timestamp,
+    Error,
 };
 
 const MESSAGE_TYPE_HANDSHAKE_INITIATION: u8 = 1u8;
